@@ -1,8 +1,11 @@
 import math
 
 import torch
-import xformers
-import xformers.ops
+try:
+    import xformers
+    import xformers.ops
+except ImportError:
+    xformers = None
 from diffusers.models.attention import FeedForward
 from diffusers.models.attention_processor import Attention
 from diffusers.utils.import_utils import is_xformers_available
